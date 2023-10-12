@@ -1,6 +1,16 @@
-#!/usr/bin/env bash                                
-# display all running PID                                               
-while :                                            
-do                                                                              echo "I am alive!" >> /tmp/my_process      
-        sleep 2                                    
-done
+#!/bin/bash
+case "$1" in
+    start)
+        sudo ./manage_my_process start
+        ;;
+    stop)
+        sudo ./manage_my_process stop
+        ;;
+    restart)
+        sudo ./manage_my_process restart
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+        ;;
+esac
